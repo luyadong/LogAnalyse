@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+{%extends 'base.html'%}
+
+{%block content%}
+<form class="box form-horizontal" method="post" action="/device/manage/">
+    <div class="row-fluid sortable">
+        <div class="span12">
+            <div class="box-header well" data-original-title>
+        	<h2><i class="icon-edit"></i>基本信息</h2>
+        	<div class="box-icon">
+        	    <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
+        	</div>
+            </div>
+            <div class="box-content">
+        	<table class="table-condensed">
+		    <tr>
+        	    <td><label class="control-label">内网ip：</label>{{df.nei_ip}}</td>
+        	    <td><label class="control-label">外网ip：</label>{{df.wai_ip}}</td>
+		    </tr>
+		    <tr>
+        	    <td><label class="control-label">主机名：</label>{{df.hostname}}</td>
+        	    <td><label class="control-label">序列号：</label>{{df.serial_number}}</td>
+		    </tr>
+		    <tr>
+        	    <td><label class="control-label">采购日期：</label>{{df.buy_date}}</td>
+        	    <td><label class="control-label">资产编号：</label>{{df.inventar_Nummer}}</td>
+		    </tr>
+		    <tr>
+        	    <td><label class="control-label">厂商/类型：</label>{{df.manufacturer}}</td>
+        	    <td><label class="control-label">型号：</label>{{df.type}}</td>
+		    </tr>
+		    <tr>
+        	    <td><label class="control-label">是否监控：</label>{{df.monitor}}</td>
+        	    <td><label class="control-label">位置：</label>{{df.location}}</td>
+		    </tr>
+		    <tr>
+        	    <td><label class="control-label">负责人：</label>{{df.principal}}</td>
+        	    <td><label class="control-label">管理员：</label>{{df.administrator}}</td>
+		    </tr>
+		    <tr>
+        	    <td><label class="control-label">用途：</label>{{df.purpose}}</td>
+        	    <td><label class="control-label">状态：</label>{{df.status}}</td>
+		    </tr>
+		    <tr>
+        	    <td><label class="control-label">备注：</label><textarea name="remarks" cols="40" rows="10" id="id_remarks" style="width: 385px; height: 95px;"></textarea></td>
+		    </tr>
+        	</table>
+	    </div>
+        </div><!--/span-->
+    </div><!--/row-->
+    
+    <div class="row-fluid sortable">
+        <div class="span12">
+            <div class="box-header well" data-original-title>
+        	<h2><i class="icon-edit"></i>系统信息</h2>
+        	<div class="box-icon">
+        	    <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
+        	</div>
+            </div>
+            <div class="box-content">
+        	    <fieldset>
+        	      <div class="control-group">
+        		<label class="control-label">操作系统：</label>
+        		<div class="controls">{{df.os}}</div>
+        	      </div>
+        	      <div class="control-group success">
+        		<label class="control-label">分区：</label>
+        		<div class="controls">{{df.partion}}</div>
+        	      </div>
+        	      <div class="control-group success">
+        		<label class="control-label">处理器：</label>
+        		<div class="controls">{{df.cpu}}</div>
+        	      </div>
+        	      <div class="control-group success">
+        		<label class="control-label">内存：</label>
+        		<div class="controls">{{df.memory}}</div>
+        	      </div>
+        	      <div class="control-group success">
+        		<label class="control-label">硬盘：</label>
+        		<div class="controls">{{df.disk}}</div>
+        	      </div>
+        	      <div class="control-group success">
+        		<label class="control-label">硬盘控制器：</label>
+        		<div class="controls">{{df.disk_controller}}</div>
+        	      </div>
+        	    </fieldset>
+            </div>
+        </div><!--/span-->
+    </div><!--/row-->
+    
+    <div class="row-fluid sortable">
+        <div class="span12">
+            <div class="box-header well" data-original-title>
+        	<h2><i class="icon-edit"></i>远程管理</h2>
+        	<div class="box-icon">
+        	    <a href="#" class="btn btn-minimize btn-round"><i class="icon-chevron-up"></i></a>
+        	</div>
+            </div>
+            <div class="box-content">
+        	<table>
+		<tr>
+        	<td><label class="control-label">协议：</label>{{df.protocol}}</td>
+        	<td><label class="control-label">端口：</label>{{df.port}}</td>
+		</tr>
+		<tr>
+        	<td><label class="control-label">账户：</label>{{df.username}}</td>
+        	<td><label class="control-label">密码：</label>{{df.password}}</td>
+		</tr>
+        	</table>
+            </div>
+        </div><!--/span-->
+    </div><!--/row-->
+
+    <div class="center">
+      <button type="submit" class="btn btn-primary">Save changes</button>
+    </div>
+</form>
+{%endblock%}

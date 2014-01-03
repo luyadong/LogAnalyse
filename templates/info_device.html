@@ -1,0 +1,130 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<div class="row-fluid sortable">
+    <div class="box span12">
+        <div class="box-header well" data-original-title>
+    	<h2>{{device.nei_ip}}详细信息</h2>
+        </div>
+	<div>
+	  <table class="table table-bordered">
+		<tr><th colspan="8" style="background:#c5c5c5;">基本信息</th><tr>
+		<tr>
+		    <td class="center" style="background:#eee;">内网IP</td>
+		    <td class="center">{{device.nei_ip}}</td>
+		    <td class="center" style="background:#eee;">外网IP</td>
+		    <td class="center">{{device.wai_ip}}</td>                                       
+		</tr>
+		<tr>
+		    <td class="center" style="background:#eee;">主机名</td>
+		    <td class="center">{{device.hostname}}</td>
+		    <td class="center" style="background:#eee;">序列号</td>
+		    <td class="center">{{device.serial_number}}</td>                                       
+		</tr>
+		<tr>
+		    <td class="center" style="background:#eee;">采购日期</td>
+		    <td class="center">{{device.buy_date}}</td>
+		    <td class="center" style="background:#eee;">资产编号</td>
+		    <td class="center">{{device.inventar_Nummer}}</td>                                       
+		</tr>
+		<tr>
+		    <td class="center" style="background:#eee;">厂商</td>
+		    <td class="center">{{device.manufacturer}}</td>
+		    <td class="center" style="background:#eee;">类型</td>
+		    <td class="center">{{device.type}}</td>                                       
+		</tr>
+		<tr>
+		    <td class="center" style="background:#eee;">是否监控</td>
+		    <td class="center">
+		    {% if device.monitor == 'y' %}
+		    是
+		    {% else %}
+		    否
+		    {% endif %}
+		    </td>
+		    <td class="center" style="background:#eee;">状态</td>
+		    <td colspan="3" class="center">
+                    {% if device.monitor == 'y' %}
+                    活动
+                    {% else %}
+                    非活动
+                    {% endif %}
+                    </td>
+		    </td> 
+		</tr>
+		<tr>
+		    <td class="center" style="background:#eee;">位置</td>
+		    <td colspan="3" class="center">{{device.location}}</td> 
+		</tr>
+		<tr>
+		    <td class="center" style="background:#eee;">负责人</td>
+		    <td colspan="3" class="center">{{device.principal}}</td>
+		</tr>
+		<tr>
+		    <td class="center" style="background:#eee;">管理员</td>
+		    <td colspan="3" class="center">{{device.administrator}}</td>
+		</tr>
+		<tr>
+		    <td class="center" style="background:#eee;">用途</td>
+		    <td colspan="3" class="center">{{device.purpose}}</td>
+		</tr>
+		<tr>
+		    <td class="center" style="background:#eee;">备注</td>
+		    <td colspan="3" class="center">{{device.remarks}}</td>
+		</tr>
+		<tr><th colspan="8" style="background:#c5c5c5;">系统信息</th><tr>
+		<tr>
+		    <td class="center" style="background:#eee;">操作系统</td>
+		    <td colspan="3" class="center">
+                    {% if device.os == 'c' %}
+                    Centos
+                    {% else %}
+			{%if device.os == 'w'%}
+			Windows
+                        {% else %}
+			    {%if device.os == 'f'%}
+			    Fedora
+			    {%endif%}
+			{%endif%}
+                    {% endif %}		    
+		    </td>
+		</tr>
+		<tr>
+		    <td class="center" style="background:#eee;">分区</td>
+		    <td colspan="3" class="center">{{device.partion}}</td>
+		</tr>
+		<tr>
+		    <td class="center" style="background:#eee;">处理器</td>
+		    <td colspan="3" class="center">{{device.cpu}}</td>
+		</tr>
+		<tr>
+		    <td class="center" style="background:#eee;">内存</td>
+		    <td colspan="3" class="center">{{device.memory}}</td>
+		</tr>
+		<tr>
+		    <td class="center" style="background:#eee;">硬盘</td>
+		    <td colspan="3" class="center">{{device.disk}}</td>
+		</tr>
+		<tr>
+		    <td class="center" style="background:#eee;">硬盘控制器</td>
+		    <td colspan="3" class="center">{{device.disk_controller}}</td>
+		</tr>
+		<tr><th colspan="8" style="background:#c5c5c5;">远程管理</th><tr>
+		<tr>
+		    <td class="center" style="background:#eee;">协议</td>
+		    <td class="center">{{device.protocol}}</td>
+		    <td class="center" style="background:#eee;">端口</td>
+		    <td class="center">{{device.port}}</td>                                       
+		</tr>
+		<tr>
+		    <td class="center" style="background:#eee;">用户名</td>
+		    <td class="center">{{device.username}}</td>
+		    <td class="center" style="background:#eee;">密码</td>
+		    <td class="center">{{device.password}}</td>                                       
+		</tr>
+	  </table>
+	</div>
+    </div><!--/span-->
+</div><!--row-->
+		
+{%endblock%}

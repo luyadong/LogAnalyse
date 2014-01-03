@@ -1,0 +1,37 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<div class="row-fluid sortable">
+    <div class="box span12">
+        <div class="box-header well" data-original-title>
+    	<h2>{{project.name}}项目详细信息</h2>
+        </div>
+	<div>
+	  <table class="table table-bordered">
+		<tr>
+		    <td class="center" style="background:#eee;">项目名称</td>
+		    <td class="center">{{project.name}}</td>
+		</tr>
+		<tr>
+		    <td class="center" style="background:#eee;">服务名称</td>
+		    <td class="center">{{project.web}}</td>
+		</tr>
+		<tr>
+		    <td class="center" style="background:#eee;">家目录</td>
+		    <td class="center">{{project.document}}</td>
+		</tr>
+		<tr>
+		    <td class="center" style="background:#eee;">IP地址</td>
+		    <td class="center" >
+		    {%for device in devices%}
+		    <a href="/device/list/{{device.nei_ip}}">{{device.nei_ip}}</a>
+		    {%endfor%}
+		    </td>
+		</tr>
+		
+	  </table>
+	</div>
+    </div><!--/span-->
+</div><!--row-->
+		
+{%endblock%}

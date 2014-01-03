@@ -1,0 +1,72 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<div class="row-fluid sortable">
+    <div class="box span12">
+        <div class="box-header well" data-original-title>
+    	<h2>服务器列表</h2>
+        </div>
+        <div class="box-content">
+	    <div class="row-fluid">
+		<div class="span4">
+		    <div id="DataTables_Table_0_length" class="dataTables_length">
+			<label><select name="DataTables_Table_0_length" size="1" aria-controls="DataTables_Table_0">
+			    <option value="10" selected="selected">10</option><option value="25">25</option><option value="50">50</option>
+			    <option value="100">100</option></select> records per page
+			</label>
+		    </div>
+		</div>
+	    <div class="span8">
+		<div class="dataTables_filter" id="DataTables_Table_0_filter">
+		    <form method="POST" action="/project/search/">
+		    <input type="text" name='search' id='search' aria-controls="DataTables_Table_0">
+		    <button type="submit" class="btn btn-primary">Search</button>
+		    </form>
+		</div>
+	    </div>
+	</div>
+    	<table class="table">
+    	      <thead>
+    		  <tr>
+    		      <th>项目名称：</th>
+    		      <th>服务名：</th>
+    		      <th>家目录</th>
+    		      <th>服务器IP：</th>                                          
+    		      <th>状态：</th>                                          
+    		  </tr>
+    	      </thead>   
+    	      <tbody>
+		{% for project in projects%}
+    		<tr>
+    		    <td><a href="/project/list/{{project.name}}">{{project.name}}</a></td>
+    		    <td class="center">{{project.web}}</td>
+    		    <td class="center">{{project.document}}</td>
+		    <td class="center">
+		    {%for device in project.device.all%}
+		    <a href="/device/list/{{device.nei_ip}}">{{device.nei_ip}}</a>,
+		    {%endfor%}
+		    </td>
+    		    <td class="center">
+    			<span class="label label-success">Active</span>
+    		    </td>                                       
+    		</tr>
+		{%endfor%}
+    	      </tbody>
+    	 </table>  
+    	 <div class="pagination pagination-centered">
+    	  <ul>
+    	    <li><a href="#">Prev</a></li>
+    	    <li class="active">
+    	      <a href="#">1</a>
+    	    </li>
+    	    <li><a href="#">2</a></li>
+    	    <li><a href="#">3</a></li>
+    	    <li><a href="#">4</a></li>
+    	    <li><a href="#">Next</a></li>
+    	  </ul>
+    	</div>     
+        </div>
+    </div><!--/span-->
+</div><!--row-->
+		
+{%endblock%}
