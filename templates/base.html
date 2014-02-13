@@ -1,168 +1,71 @@
 <!DOCTYPE html>
+{%load staticfiles%}
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>Ops_Manager</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
-	<meta name="author" content="Muhammad Usman">
-
-	<!-- The styles -->
-	<link id="bs-css" href="/static/css/bootstrap-cerulean.css" rel="stylesheet">
-	<style type="text/css">
-	  body {
-		padding-bottom: 40px;
-	  }
-	  .sidebar-nav {
-		padding: 9px 0;
-	  }
-	  .well {
-          background-color: #F5F5F5;
-          border: 1px solid #E3E3E3;
-          border-radius: 4px 4px 4px 4px;
-          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
-          margin-bottom: 20px;
-          min-height: 40px;
-          padding: 19px;
-	  }
-	</style>
-	<link href="/static/css/bootstrap-responsive.css" rel="stylesheet">
-	<link href="/static/css/charisma-app.css" rel="stylesheet">
-	<link href="/static/css/jquery-ui-1.8.21.custom.css" rel="stylesheet">
-	<link href='/static/css/fullcalendar.css' rel='stylesheet'>
-	<link href='/static/css/fullcalendar.print.css' rel='stylesheet'  media='print'>
-	<link href='/static/css/chosen.css' rel='stylesheet'>
-	<link href='/static/css/uniform.default.css' rel='stylesheet'>
-	<link href='/static/css/colorbox.css' rel='stylesheet'>
-	<link href='/static/css/jquery.cleditor.css' rel='stylesheet'>
-	<link href='/static/css/jquery.noty.css' rel='stylesheet'>
-	<link href='/static/css/noty_theme_default.css' rel='stylesheet'>
-	<link href='/static/css/elfinder.min.css' rel='stylesheet'>
-	<link href='/static/css/elfinder.theme.css' rel='stylesheet'>
-	<link href='/static/css/jquery.iphone.toggle.css' rel='stylesheet'>
-	<link href='/static/css/opa-icons.css' rel='stylesheet'>
-	<link href='/static/css/uploadify.css' rel='stylesheet'>
-	<link rel="shortcut icon" href="/static/img/favicon.ico">
-		
+    <title>LogAnalyse</title>
+    <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap-theme.min.css" %}">
 </head>
 
 <body>
-<!-- topbar starts -->
-<!-- <div class="navbar">
-    <div class="navbar-inner">
-        <div class="container-fluid">
-	   <a class="brand" href="index.html"> <img alt="Charisma Logo" src="/static/img/logo20.png" /> <span>OPS</span></a>
-	   {% if user.is_authenticated %}
-           <div class="btn-group pull-right" >
-                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="icon-user"></i><span class="hidden-phone">{{user.username}}</span>
-                    <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="/logout/">Logout</a></li>
-                </ul>
-           </div>
-	   {%endif%}
-        </div>
-    </div>
-        <div class="top-nav nav-collapse">
-	    <ul class="nav">
-	        <li><a href="#">Visit Site</a></li>
-	    </ul>
-	</div>
-</div>
--->
-
 <div class="navbar">
-	<div class="navbar-inner">
-		<div class="container-fluid">
-			<a data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse" data-toggle="collapse" class="btn btn-navbar">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</a>
-			<a href="index.html" class="brand"> <img src="static/img/logo20.png" alt="Charisma Logo"> <span>Charisma</span></a>
-			
-			<!-- user dropdown starts -->
-			<div class="btn-group pull-right">
-				<a href="#" data-toggle="dropdown" class="btn dropdown-toggle">
-					<i class="icon-user"></i><span class="hidden-phone"> admin</span>
-					<span class="caret"></span>
-				</a>
-			</div>
-			<!-- user dropdown ends -->
-			
-			<div class="top-nav nav-collapse">
-				<ul class="nav">
-					<li><a href="#"><h3>dpool</h3></a></li>
-					<li><a href="#"><h3>wapcms</h3></a></li>
-					<li><a href="#"><h3>langshou</h3></a></li>
-				</ul>
-			</div><!--/.nav-collapse -->
-		</div>
-	</div>
+  <div class="navbar-inner">
+    <div class="container">
+      <nav class="navbar navbar-inverse" role="navigation">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">LogAnalyse</a>
+        </div>
+      
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">首页</a></li>
+            <li><a href="/device/">设备</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">产品<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">浪首</a></li>
+                <li class="divider"></li>
+                <li><a href="#">dpool</a></li>
+                <li class="divider"></li>
+                <li><a href="#">wapcms</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">root<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">退出</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </nav>
+    </div>
+  </div>
 </div>
-<!-- topbar ends -->
 
-<div class="container-fluid">
-    <div class="row-fluid">
-        <!-- left menu starts -->
-        <div class="span2 main-menu-span">
-            <div class="well nav-collapse sidebar-nav">
-                <ul class="nav nav-tabs nav-stacked main-menu">
-                   <li class="nav-header hidden-tablet"><h2>导航</h2></li>
-                   <li><a href="/"><i class="icon-home"></i><span class="hidden-tablet">首页</span></a></li>
-                   <li><a href="/device/list/"><i class="icon-list-alt"></i><span class="hidden-tablet">设备</span></a></li>
-                   <li><a href="/device/manage/"><i class="icon-edit"></i><span class="hidden-tablet">设备管理</span></a></li>
-                   <li><a href="/project/list/"><i class="icon-list-alt"></i><span class="hidden-tablet">项目</span></a></li>
-                   <li><a href="/project/manage/"><i class="icon-edit"></i><span class="hidden-tablet">项目管理</span></a></li>
-		   <li><a><i class="icon-lock"></i><span class="hidden-tablet">登录页面</span></a></li>
-            </div><!--/.well -->
-        </div><!--/span-->
-        <!-- left menu ends -->
+<div class="container">
+  <div class="row">
 
-        <div id="content" class="span10">
-	    <div id='content'>
-		{%block content%}{%endblock%}
-	    </div>
-        </div><!--/#content.span10-->
-    </div><!--/fluid-row-->
-</div><!--/.fluid-container-->
+    <div class="col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
+      <div class="list-group">
+        <a href="#" class="list-group-item active">Link</a>
+        <a href="#" class="list-group-item">Link</a>
+        <a href="#" class="list-group-item">Link</a>
+        <a href="#" class="list-group-item">Link</a>
+        <a href="#" class="list-group-item">Link</a>
+      </div>
+     </div>
 
-    <script src="/static/js/jquery-1.7.2.min.js"></script>
-    <script src="/static/js/jquery-ui-1.8.21.custom.min.js"></script>
-    <script src="/static/js/bootstrap-transition.js"></script>
-    <script src="/static/js/bootstrap-alert.js"></script>
-    <script src="/static/js/bootstrap-modal.js"></script>
-    <script src="/static/js/bootstrap-dropdown.js"></script>
-    <script src="/static/js/bootstrap-scrollspy.js"></script>
-    <script src="/static/js/bootstrap-tab.js"></script>
-    <script src="/static/js/bootstrap-tooltip.js"></script>
-    <script src="/static/js/bootstrap-popover.js"></script>
-    <script src="/static/js/bootstrap-button.js"></script>
-    <script src="/static/js/bootstrap-collapse.js"></script>
-    <script src="/static/js/bootstrap-carousel.js"></script>
-    <script src="/static/js/bootstrap-typeahead.js"></script>
-    <script src="/static/js/bootstrap-tour.js"></script>
-    <script src="/static/js/jquery.cookie.js"></script>
-    <script src='/static/js/fullcalendar.min.js'></script>
-    <script src='/static/js/jquery.dataTables.min.js'></script>
-    <script src="/static/js/excanvas.js"></script>
-    <script src="/static/js/jquery.flot.min.js"></script>
-    <script src="/static/js/jquery.flot.pie.min.js"></script>
-    <script src="/static/js/jquery.flot.stack.js"></script>
-    <script src="/static/js/jquery.flot.resize.min.js"></script>
-    <script src="/static/js/jquery.chosen.min.js"></script>
-    <script src="/static/js/jquery.uniform.min.js"></script>
-    <script src="/static/js/jquery.colorbox.min.js"></script>
-    <script src="/static/js/jquery.cleditor.min.js"></script>
-    <script src="/static/js/jquery.noty.js"></script>
-    <script src="/static/js/jquery.elfinder.min.js"></script>
-    <script src="/static/js/jquery.raty.min.js"></script>
-    <script src="/static/js/jquery.iphone.toggle.js"></script>
-    <script src="/static/js/jquery.autogrow-textarea.js"></script>
-    <script src="/static/js/jquery.uploadify-3.1.min.js"></script>
-    <script src="/static/js/jquery.history.js"></script>
-    <script src="/static/js/charisma.js"></script>
+     <div class="col-sm-10">
+       {%block content%}{%endblock%} 
+     </div>
+
+  </div><!--/row-->
+</div><!--/contariner-->
+
+    <script src="{% static "js/jquery.min.js" %}" type="text/javascript"></script>
+    <script src="{% static "js/bootstrap.min.js" %}" type="text/javascript"></script>
+
 </body>
-</html>
